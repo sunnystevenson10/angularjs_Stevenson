@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My Client Organizer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="main.ctrl.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="MainController as main">
+	<div class="container">
+		
+		<div class="page-header">
+         <img src="css/logo.png" alt="logo" />
+	 	<h1>{{main.title}}</h1>
+	 	</div>
+
+	 	<div class="row">
+		<div class="col-md-6">
+
+	 	<div class="input-group">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-search"></span>
+        </span>
+        <input type="text" class="form-control" ng-model="main.searchInput">
+    </div>
+     <h3>My List of Clients</h3>
+    <ul class="list-group">
+         <li class="list-group-item" ng-repeat="show in main.clients | filter:main.searchInput | orderBy:main.order.key:main.order.reverse"><span class="glyphicon glyphicon-star" ng-if="show.favorite"></span> {{show.name}} <span class="badge">{{show.year}}</span></li>
+    </ul>
+   
+    <select class="form-control pull-right" ng-model="main.order" ng-options="order as order.title for order in main.orders"></select>
+    </div>
+
+    <!---input to add a new client---->
+	<div class="col-md-6">
+    <div class="clearfix"></div>
+    <h3>Add a new client</h3>
+    <form name="main.addForm" class="form" ng-submit="main.addShow()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" ng-model="main.new.name" required />
+        </div>
+        <div class="form-group">
+            <label>Year</label>
+            <input type="number" min="1900" max="2030" class="form-control" ng-model="main.new.year" required />
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <label>Favorite: <input type="checkbox" ng-model="main.new.favorite" /></label>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
+            </div>
+        </div>
+    </form>
+   
+</div><!---end of second column in row---->
+
+
+	 
+	</div><!---end of row div--->
+    
+  
+   
+   </div><!----end of container div--->
+   
+   <div class="bottom">
+<div class="container">
+    	<div class="col-md-4">
+        <h3><span class="glyphicon glyphicon-star"></span> Angular JS App</h3>
+        </div>
+    <div class="col-md-4">
+            <h3><span class="glyphicon glyphicon-th-large"></span> DGM 3790 RIA</h3>
+        </div>
+         <div class="col-md-4">
+            <h3><span class="glyphicon glyphicon-pencil"></span> Created by Sunny Stevenson</h3>
+        </div>
+        
+        
+
+
+	</div><!--end of bottom container div-->
+</div><!--end of bottom div-->
+   
+   
+   
+
+</body>
+</html>

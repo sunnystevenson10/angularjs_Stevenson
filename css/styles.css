@@ -1,0 +1,42 @@
+
+.page-header {
+	padding: 2px 30px 30px 30px;
+}
+.page-header img {
+	float:left;
+	padding: .5em .5em .5em 0;
+	width: 45px;
+}
+.page-header h1 {
+	color: #404040;
+	font-weight: 400;
+}
+body h3 {
+	color: #404040;
+	font-weight: 400;
+}
+.input-group {
+	padding-top: 1.5em;
+}
+
+.form-group label {
+	color: #404040;
+	font-weight: 400;
+}
+form label {
+	color: #404040;
+	font-weight: 400;
+}
+.bottom .container {
+	margin-top: 1.5em;
+}
+.bottom {
+    background-color: #474747;
+}
+.bottom h3 {
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+
